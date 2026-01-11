@@ -1,0 +1,131 @@
+---
+import siteConfig from "../site.config";
+
+// Krishna in different languages
+const krishnaTranslations = [
+  "Krishna",           // English
+  "कृष्ण",             // Hindi/Sanskrit (Devanagari)
+  "కృష్ణ",             // Telugu
+  "கிருஷ்ணா",           // Tamil
+  "কৃষ্ণ",             // Bengali
+  "कृष्ण",             // Marathi
+  "ක්‍රිෂ්ණ",           // Sinhala
+  "കൃഷ്ണൻ",            // Malayalam
+  "କୃଷ୍ଣ",             // Odia
+  "ਕ੍ਰਿਸ਼ਨ",           // Punjabi (Gurmukhi)
+  "Кришна",            // Russian
+  "克里希纳",           // Chinese (Simplified)
+  "クリシュナ",          // Japanese
+  "크리슈나",            // Korean
+  "كريشنا",            // Arabic
+  "Κρίσνα",            // Greek
+  "Krishna",           // Spanish
+  "Krishna",           // French
+  "Krishna",           // German
+  "Krishna",           // Portuguese
+  "Krishna",           // Italian
+  "Krishna",           // Dutch
+];
+
+// Sticker configurations with well-spaced positions to avoid collisions
+const stickerConfigs = [
+  { top: "8%", left: "3%", rotate: -18, opacity: 0.025, size: "clamp(2rem, 4vw, 4rem)" },
+  { top: "18%", right: "6%", rotate: 15, opacity: 0.03, size: "clamp(1.8rem, 3.5vw, 3.5rem)" },
+  { top: "32%", left: "1%", rotate: -12, opacity: 0.02, size: "clamp(2.5rem, 5vw, 5rem)" },
+  { top: "48%", right: "10%", rotate: 20, opacity: 0.028, size: "clamp(1.5rem, 3vw, 3rem)" },
+  { top: "62%", left: "5%", rotate: -25, opacity: 0.025, size: "clamp(2.2rem, 4.5vw, 4.5rem)" },
+  { top: "73%", right: "3%", rotate: 8, opacity: 0.02, size: "clamp(1.9rem, 3.8vw, 3.8rem)" },
+  { top: "12%", left: "42%", rotate: 28, opacity: 0.018, size: "clamp(2.1rem, 4.2vw, 4.2rem)" },
+  { top: "38%", left: "48%", rotate: -20, opacity: 0.028, size: "clamp(1.6rem, 3.2vw, 3.2rem)" },
+  { top: "58%", left: "38%", rotate: 18, opacity: 0.022, size: "clamp(2.4rem, 4.8vw, 4.8rem)" },
+  { top: "78%", left: "32%", rotate: -14, opacity: 0.025, size: "clamp(1.75rem, 3.5vw, 3.5rem)" },
+  { top: "22%", right: "22%", rotate: 22, opacity: 0.018, size: "clamp(2.25rem, 4.5vw, 4.5rem)" },
+  { top: "52%", right: "28%", rotate: -28, opacity: 0.028, size: "clamp(1.8rem, 3.6vw, 3.6rem)" },
+  { top: "68%", right: "18%", rotate: 10, opacity: 0.022, size: "clamp(2rem, 4vw, 4rem)" },
+  { top: "3%", left: "22%", rotate: -22, opacity: 0.025, size: "clamp(1.7rem, 3.4vw, 3.4rem)" },
+  { top: "43%", left: "12%", rotate: 24, opacity: 0.022, size: "clamp(2.15rem, 4.3vw, 4.3rem)" },
+  { top: "83%", left: "18%", rotate: -11, opacity: 0.028, size: "clamp(1.85rem, 3.7vw, 3.7rem)" },
+  { top: "28%", right: "12%", rotate: 16, opacity: 0.018, size: "clamp(2.3rem, 4.6vw, 4.6rem)" },
+  { top: "88%", right: "6%", rotate: -19, opacity: 0.025, size: "clamp(1.65rem, 3.3vw, 3.3rem)" },
+  { top: "15%", left: "30%", rotate: -16, opacity: 0.02, size: "clamp(2rem, 4vw, 4rem)" },
+  { top: "35%", right: "35%", rotate: 26, opacity: 0.025, size: "clamp(1.9rem, 3.8vw, 3.8rem)" },
+  { top: "55%", left: "28%", rotate: -14, opacity: 0.022, size: "clamp(2.2rem, 4.4vw, 4.4rem)" },
+  { top: "85%", left: "45%", rotate: 19, opacity: 0.028, size: "clamp(1.7rem, 3.4vw, 3.4rem)" },
+  { top: "5%", right: "40%", rotate: -24, opacity: 0.018, size: "clamp(2.1rem, 4.2vw, 4.2rem)" },
+  { top: "25%", left: "60%", rotate: 13, opacity: 0.025, size: "clamp(1.8rem, 3.6vw, 3.6rem)" },
+];
+
+// Shuffle array for random distribution (Fisher-Yates shuffle)
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
+// Create a shuffled array of translations, repeating to cover all stickers
+const shuffledTranslations = (() => {
+  const repetitions = Math.ceil(stickerConfigs.length / krishnaTranslations.length);
+  const repeated = Array(repetitions).fill(krishnaTranslations).flat();
+  return shuffleArray(repeated);
+})();
+---
+
+<div class="background-stickers fixed inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
+  {stickerConfigs.map((config, index) => {
+    const translation = shuffledTranslations[index];
+    const positionStyle = config.left 
+      ? `top: ${config.top}; left: ${config.left};`
+      : `top: ${config.top}; right: ${config.right};`;
+    
+    return (
+      <span 
+        class="sticker sigmar-ff" 
+        style={`position: absolute; ${positionStyle} transform: rotate(${config.rotate}deg); opacity: ${config.opacity}; font-size: ${config.size}; color: currentColor;`}
+      >
+        {translation}
+      </span>
+    );
+  })}
+</div>
+
+<style>
+  .background-stickers {
+    user-select: none;
+    -webkit-user-select: none;
+    mix-blend-mode: multiply;
+  }
+  
+  html.dark .background-stickers {
+    mix-blend-mode: screen;
+  }
+  
+  .sticker {
+    white-space: nowrap;
+    pointer-events: none;
+    font-family: "Sigmar", "Kanit", sans-serif;
+  }
+  
+  /* Support for different writing systems */
+  .sticker {
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+  }
+  
+  /* Ensure stickers don't interfere with content on mobile */
+  @media (max-width: 768px) {
+    .sticker {
+      font-size: clamp(1.2rem, 2.5vw, 2rem) !important;
+      opacity: 0.015 !important;
+    }
+  }
+  
+  /* Subtle hover effect if user wants interactivity later */
+  @media (hover: hover) {
+    .sticker {
+      transition: opacity 0.2s ease;
+    }
+  }
+</style>

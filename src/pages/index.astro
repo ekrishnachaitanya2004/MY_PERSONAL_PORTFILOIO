@@ -1,0 +1,148 @@
+---
+import { getCollection } from "astro:content";
+import MainLayout from "../layouts/MainLayout.astro";
+import siteConfig from "../site.config";
+import { sortItemsByDateDesc, withBase } from "../utils/helpers";
+import PostCardPreview from "../components/PostCardPreview.astro";
+import Button from "../components/Button.astro";
+import ArrowRight from "../icons/ArrowRight.astro";
+
+const allPosts = (await getCollection("blogs"))
+  .filter((post) => !post.data.draft)
+  .sort(sortItemsByDateDesc);
+---
+
+<MainLayout
+  activePage="home"
+  pageTitle={siteConfig.title + " | An Astro Personal Blog Template"}
+>
+  <div
+    class="jumbo-banner flex flex-col sm:flex-row sm:items-center sm:justify-between w-full px-4 my-12 gap-6"
+  >
+    <div class="w-full sm:w-1/2 sm:max-w-md hero-text-container relative z-10">
+      {
+        siteConfig.hero?.eyebrowText && (
+          <span class="tag rounded-full text-xs px-2 py-0 border border-gray-500 kanit-light inline-flex items-center gap-1 mb-4">
+            {siteConfig.hero?.eyebrowText}
+              <img 
+                src={withBase("/Illustration-of-check-mark-icon-in-blue-color-on-transparent-background-PNG-removebg-preview.png")}
+                alt="Verified"
+                class="verified-icon"
+              />
+          </span>
+        )
+      }
+      <h1 class="sigmar-ff leading-tight sm:pt-0! hero-name">
+        Krishna Ethamukkala
+      </h1>
+      <p class="kanit-regular text-balance text-xs sm:text-base">
+        {siteConfig.hero?.text}
+      </p>
+      <div
+        class="flex flex-wrap items-center text-xs sm:text-base gap-x-2 gap-y-8 mt-3 sm:mt-12"
+      >
+        {
+          siteConfig.hero?.actions?.map((action, index) => (
+            <Button
+              href={action.href}
+              class={index === 0 ? "space-btn-filled" : "space-btn-outlined"}
+            >
+              {action.text}
+            </Button>
+          ))
+        }
+      </div>
+    </div>
+    <div class="w-full sm:w-[60%] sm:max-w-md hero-image-container relative z-0">
+      <img
+        class="cover-img rounded-xl object-cover h-auto hero-image"
+        src={withBase("/krishnaFULLPHOTO.jpeg")}
+        alt="Krishna Chaitanya Ethamukkala"
+        width="400"
+        height="500"
+      />
+    </div>
+  </div>
+  <div class="page-content">
+    <div id="posts" class="flex flex-col items-center justify-center w-full">
+      <h2 class="sigmar-ff text-balance pt-0! pb-8!">Recent Stories</h2>
+      <div class="flex flex-col gap-8 max-w-full text-left">
+        {
+          allPosts
+            .slice(0, siteConfig.recentPostLimit)
+            .map((post) => <PostCardPreview post={post} />)
+        }
+      </div>
+      <Button href={withBase("/blog")} class="space-btn-filled mt-8">
+        View All Posts <ArrowRight class="w-5 h-5 fill-current ml-4" />
+      </Button>
+    </div>
+  </div>
+</MainLayout>
+
+<style>
+  .jumbo-banner {
+    position: relative;
+  }
+  
+  .hero-text-container {
+    flex-shrink: 0;
+    min-width: 0;
+  }
+  
+  .hero-image-container {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .hero-image {
+    width: 80%;
+    height: auto;
+    max-width: 100%;
+    opacity: 0.6;
+  }
+  
+  .hero-name {
+    font-size: clamp(1.4rem, 3.6vw, 3.2rem);
+    word-break: keep-all;
+    overflow-wrap: normal;
+    hyphens: none;
+    line-height: 1.1;
+    position: relative;
+    z-index: 10;
+  }
+  
+  /* Ensure text container doesn't overlap image */
+  @media (min-width: 640px) {
+    .hero-text-container {
+      padding-right: 1rem;
+    }
+    
+    .hero-image-container {
+      padding-left: 1rem;
+    }
+  }
+  
+  /* Allow wrapping only at the space between names on small screens */
+  @media (max-width: 640px) {
+    .hero-name {
+      white-space: normal;
+    }
+  }
+  
+  /* Prevent breaking within words */
+  .hero-name {
+    word-spacing: normal;
+  }
+
+  .verified-icon {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.25rem;
+    flex-shrink: 0;
+  }
+</style>

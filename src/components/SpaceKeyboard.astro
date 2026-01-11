@@ -1,0 +1,76 @@
+---
+import SpaceBar from "./SpaceBar";
+
+const messages = [
+  "🚃 Life in a Metro!",
+  "🍔 Vada Pav is the original burger...",
+  "🛺 Tation Tation Tation!!!",
+  "🌧️ Bin mausam baarish",
+  "🚌 Pudhe chala!",
+  "🚉 Next Station Bandra, Agla Station Bandra, Pudhil Station Vandre",
+  "💤 City of Dreams",
+  "🚕 Taxi No 9 2 11",
+  "🏙️ Bombay Nagariya",
+  "☕ Ek Cutting Chai dena!",
+  "🚨 Platform kramank ek par aayi hui local….",
+  "🍿 DDLJ @ Maratha Mandir",
+  "🏛️ Mannat!",
+  "🏏 Sachin! SACHIN!",
+];
+---
+
+<div
+  class="flex flex-row w-full justify-between gap-2 items-center mt-12 sm:mt-24"
+>
+  <div
+    id="ctrl-left"
+    class="hidden sm:block pl-2 pb-2 pt-4 pr-4 text-xs border border-dashed border-gray-500 rounded-2xl font-mono"
+  >
+    ^
+  </div>
+  <div
+    id="fn"
+    class="hidden sm:block pl-2 pb-2 pt-4 pr-4 text-xs border border-dashed border-gray-500 rounded-2xl font-mono"
+  >
+    ⌥
+  </div>
+  <div
+    id="alt-left"
+    class="hidden sm:block pl-2 pb-2 pt-4 pr-4 text-xs border border-dashed border-gray-500 rounded-2xl font-mono"
+  >
+    ⌘
+  </div>
+  <SpaceBar
+    client:load
+    messages={messages}
+    className="pl-2 pb-2 pt-4 pr-4 text-xs border border-dashed border-gray-500 rounded-2xl font-mono"
+  />
+  <div
+    id="alt-right"
+    class="hidden sm:block pl-2 pb-2 pt-4 pr-4 text-xs border border-dashed border-gray-500 rounded-2xl font-mono"
+  >
+    ^
+  </div>
+  <div
+    id="ctrl-right"
+    class="hidden sm:block pl-2 pb-2 pt-4 pr-4 text-xs border border-dashed border-gray-500 rounded-2xl font-mono"
+  >
+    ⌘
+  </div>
+</div>
+
+<script is:inline>
+  // Detect OS and show/hide elements
+  window.addEventListener("DOMContentLoaded", () => {
+    const platform = navigator.userAgent.toLowerCase();
+    const isWin = platform.includes("win");
+
+    if (isWin) {
+      document.getElementById("ctrl-left").textContent = "ctrl";
+      document.getElementById("ctrl-right").textContent = "ctrl";
+      document.getElementById("alt-left").textContent = "alt";
+      document.getElementById("alt-right").textContent = "alt";
+      document.getElementById("fn").textContent = "fn";
+    }
+  });
+</script>

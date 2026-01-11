@@ -1,0 +1,91 @@
+---
+import type { GetStaticPathsOptions, Page } from "astro";
+import { type CollectionEntry, getCollection } from "astro:content";
+import Pagination from "../../components/Pagination.astro";
+import Subscribe from "../../components/Subscribe.astro";
+import { sortItemsByDateDesc } from "../../utils/helpers";
+import MainLayout from "../../layouts/MainLayout.astro";
+import siteConfig from "../../site.config";
+import PostCardPreview from "../../components/PostCardPreview.astro";
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const allBlogs = await getCollection("blogs");
+  // Filter out draft posts
+  const blogs = allBlogs
+    .filter((blog) => !blog.data.draft)
+    .sort(sortItemsByDateDesc);
+  return paginate(blogs, { pageSize: siteConfig.postsPerPage || 2 });
+}
+
+type Props = { page: Page<CollectionEntry<"blogs">> };
+
+const { page } = Astro.props;
+const allPosts = page.data;
+
+// Group posts by month and year
+function groupPostsByMonth(posts: CollectionEntry<"blogs">[]) {
+  const grouped: Record<string, CollectionEntry<"blogs">[]> = {};
+  
+  posts.forEach((post) => {
+    const date = new Date(post.data.pubDate);
+    const monthYear = date.toLocaleDateString("en-us", {
+      year: "numeric",
+      month: "long",
+    });
+    
+    if (!grouped[monthYear]) {
+      grouped[monthYear] = [];
+    }
+    grouped[monthYear].push(post);
+  });
+  
+  // Sort posts within each group by date (newest first)
+  Object.keys(grouped).forEach((month) => {
+    grouped[month].sort((a, b) => {
+      const dateA = new Date(a.data.pubDate);
+      const dateB = new Date(b.data.pubDate);
+      return dateB.getTime() - dateA.getTime();
+    });
+  });
+  
+  return grouped;
+}
+
+const groupedPosts = groupPostsByMonth(allPosts);
+// Sort month groups by date (newest first)
+// Get the first post from each group to determine the date
+const sortedMonths = Object.keys(groupedPosts).sort((a, b) => {
+  // Get the first post's date from each group (they're already sorted)
+  const dateA = new Date(groupedPosts[a][0].data.pubDate);
+  const dateB = new Date(groupedPosts[b][0].data.pubDate);
+  return dateB.getTime() - dateA.getTime();
+});
+---
+
+<MainLayout activePage="blog" pageTitle={siteConfig.title + " | Blog Archive"}>
+  <div class="page-content py-8 text-center">
+    <h1 class="sigmar-ff">Blog</h1>
+    <p class="font-light text-balance">
+      Funny, witty, and unexpected tales from the heart of Mumbai. Stories of
+      everyday people, their struggles, wins, and the city that shapes them.
+    </p>
+
+    <div
+      class="flex flex-col text-left gap-12 mb-4 text-sm sm:text-base max-w-fit mx-auto"
+    >
+      {sortedMonths.map((monthYear) => (
+        <div class="flex flex-col gap-6">
+          <h2 class="sigmar-ff text-2xl sm:text-3xl border-b border-gray-500/50 pb-2">
+            {monthYear}
+          </h2>
+          <div class="flex flex-col gap-8 pl-0 sm:pl-4">
+            {groupedPosts[monthYear].map((post) => (
+              <PostCardPreview post={post} />
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+    <Pagination page={page} class="mb-16 sm:mb-24" />
+  </div>
+</MainLayout>
