@@ -99,15 +99,15 @@ const sortedMonths = Object.keys(groupedPosts).sort((a, b) => {
 
   .blog-header {
     text-align: center;
-    margin-bottom: 4rem;
-    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
     border-bottom: 1px solid;
     border-color: rgba(128, 128, 128, 0.3);
   }
 
   .blog-title {
     font-size: clamp(2.5rem, 6vw, 4rem);
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.75rem;
     line-height: 1.2;
     letter-spacing: 0.02em;
   }
@@ -123,19 +123,20 @@ const sortedMonths = Object.keys(groupedPosts).sort((a, b) => {
   .blog-content {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
-    margin-bottom: 3rem;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
   }
 
   .blog-month-section {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 0.75rem;
   }
 
   .month-heading {
     font-size: clamp(1.5rem, 3vw, 2rem);
-    padding-bottom: 0.75rem;
+    padding-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
     border-bottom: 1px solid;
     border-color: rgba(128, 128, 128, 0.2);
     text-align: left;
@@ -144,13 +145,13 @@ const sortedMonths = Object.keys(groupedPosts).sort((a, b) => {
   .posts-list {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
     padding-left: 0;
   }
 
   .pagination-wrapper {
-    margin-top: 4rem;
-    margin-bottom: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
     display: flex;
     justify-content: center;
   }
@@ -161,8 +162,8 @@ const sortedMonths = Object.keys(groupedPosts).sort((a, b) => {
     }
 
     .blog-header {
-      margin-bottom: 3rem;
-      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
     }
 
     .blog-description {
@@ -170,11 +171,11 @@ const sortedMonths = Object.keys(groupedPosts).sort((a, b) => {
     }
 
     .blog-content {
-      gap: 2.5rem;
+      gap: 1.25rem;
     }
 
     .posts-list {
-      gap: 1.5rem;
+      gap: 0.75rem;
     }
 
     .month-heading {

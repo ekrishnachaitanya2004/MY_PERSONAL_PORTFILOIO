@@ -39,7 +39,7 @@ const allPosts = (await getCollection("blogs"))
         {siteConfig.hero?.text}
       </p>
       <div
-        class="flex flex-wrap items-center text-xs sm:text-base gap-x-2 gap-y-8 mt-3 sm:mt-12"
+        class="flex flex-wrap items-center text-xs sm:text-base gap-x-2 gap-y-4 mt-2 sm:mt-4"
       >
         {
           siteConfig.hero?.actions?.map((action, index) => (
@@ -65,15 +65,15 @@ const allPosts = (await getCollection("blogs"))
   </div>
   <div class="page-content">
     <div id="posts" class="flex flex-col items-center justify-center w-full">
-      <h2 class="sigmar-ff text-balance pt-0! pb-8!">Recent Stories</h2>
-      <div class="flex flex-col gap-8 max-w-full text-left">
+      <h2 class="sigmar-ff text-balance pt-0! pb-3! mb-2!">Recent Stories</h2>
+      <div class="flex flex-col gap-4 max-w-full text-left">
         {
           allPosts
             .slice(0, siteConfig.recentPostLimit)
             .map((post) => <PostCardPreview post={post} />)
         }
       </div>
-      <Button href={withBase("/blog")} class="space-btn-filled mt-8">
+      <Button href={withBase("/blog")} class="space-btn-filled mt-4">
         View All Posts <ArrowRight class="w-5 h-5 fill-current ml-4" />
       </Button>
     </div>
