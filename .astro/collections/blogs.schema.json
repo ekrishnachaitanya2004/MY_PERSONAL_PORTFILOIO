@@ -67,6 +67,10 @@
         "slug": {
           "type": "string"
         },
+        "emoji": {
+          "type": "string",
+          "default": "❤️"
+        },
         "image": {
           "type": "object",
           "properties": {

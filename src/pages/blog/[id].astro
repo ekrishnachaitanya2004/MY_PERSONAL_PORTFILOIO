@@ -12,6 +12,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
 import ArrowLeft from "../../icons/ArrowLeft.astro";
 import ArrowRight from "../../icons/ArrowRight.astro";
 import siteConfig from "../../site.config";
+import BlogBackground from "../../components/BlogBackground.astro";
 
 export async function getStaticPaths() {
   const allPosts = await getCollection("blogs");
@@ -37,25 +38,31 @@ type Props = {
 };
 
 const { post, prevPost, nextPost } = Astro.props;
-const { title, pubDate, author, tags = [], image } = post.data;
+const { title, pubDate, author, tags = [], image, emoji = "❤️" } = post.data;
 const { Content } = await render(post);
 ---
 
-<MainLayout pageTitle={siteConfig.title + " | " + title}>
+<MainLayout pageTitle={siteConfig.title + " | " + title} showSubscribeForm={false}>
+  <BlogBackground emoji={emoji} />
   <div class="page-content">
-    <h1 class="sigmar-ff text-center text-balance">{title}</h1>
-    <p class="leading-8 text-center kanit-regular text-balance text-xs">
+    <h1 class="sigmar-ff blog-post-title">{title}</h1>
+    <div class="blog-meta">
+      <span class="blog-meta-emoji">{emoji}</span>
       {author && (
-        <>by 🧑‍🚀 <span class="kanit-bold">{author}</span> </>
+        <span class="blog-author comfortaa-regular">
+          <span class="blog-author-name">{author}</span>
+        </span>
       )}
       {pubDate && (
-        <>on <span class="kanit-bold">{new Date(pubDate).toLocaleDateString("en-us", {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        })}</span></>
+        <span class="blog-date comfortaa-regular">
+          {new Date(pubDate).toLocaleDateString("en-us", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })}
+        </span>
       )}
-    </p>
+    </div>
     {
       image && image.url && (
         typeof image.url === 'string' && (image.url.startsWith('http://') || image.url.startsWith('https://')) ? (
@@ -65,7 +72,7 @@ const { Content } = await render(post);
         )
       )
     }
-    <div class="font-light text-left">
+    <div class="blog-content comfortaa-regular">
       <Content />
     </div>
     <p class="kanit-regular text-center text-balance text-xs">
@@ -100,3 +107,267 @@ const { Content } = await render(post);
     </div>
   </div>
 </MainLayout>
+
+<style>
+  .page-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .blog-post-title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.2;
+  }
+
+  .blog-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid;
+    border-color: rgba(128, 128, 128, 0.2);
+    flex-wrap: wrap;
+  }
+
+  .blog-meta-emoji {
+    font-size: 1.5rem;
+    line-height: 1;
+    opacity: 0.9;
+  }
+
+  .blog-author,
+  .blog-date {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    color: inherit;
+  }
+
+  .blog-author-name {
+    font-weight: 500;
+  }
+
+  .blog-meta > *:not(:last-child)::after {
+    content: "•";
+    margin-left: 1rem;
+    opacity: 0.5;
+  }
+
+  @media (max-width: 768px) {
+    .blog-meta {
+      flex-direction: column;
+      gap: 0.5rem;
+      padding-bottom: 1.25rem;
+    }
+
+    .blog-meta > *:not(:last-child)::after {
+      display: none;
+    }
+
+    .blog-meta-emoji {
+      font-size: 1.25rem;
+    }
+
+    .blog-author,
+    .blog-date {
+      font-size: 0.85rem;
+    }
+  }
+
+  .blog-content {
+    font-family: "Comfortaa", sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    text-align: left;
+    color: inherit;
+  }
+
+  .blog-content h1,
+  .blog-content h2,
+  .blog-content h3,
+  .blog-content h4,
+  .blog-content h5,
+  .blog-content h6 {
+    font-family: "Sigmar", sans-serif;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+
+  .blog-content h1 {
+    font-size: 1.75rem;
+  }
+
+  .blog-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .blog-content h3 {
+    font-size: 1.25rem;
+  }
+
+  .blog-content p {
+    margin-bottom: 1.5rem;
+  }
+
+  .blog-content ul,
+  .blog-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+  }
+
+  .blog-content li {
+    margin-bottom: 0.5rem;
+  }
+
+  .blog-content code {
+    font-family: "Courier New", "Monaco", "Menlo", "Ubuntu Mono", monospace;
+    background: rgba(128, 128, 128, 0.2);
+    padding: 0.15rem 0.4rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    color: inherit;
+    font-weight: 400;
+  }
+
+  html.light .blog-content code {
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  .blog-content pre {
+    position: relative;
+    background: #1e1e1e;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin: 1.5rem 0;
+    font-family: "Courier New", "Monaco", "Menlo", "Ubuntu Mono", monospace;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  html.light .blog-content pre {
+    background: #f5f5f7;
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  /* macOS Window Title Bar */
+  .blog-content pre::before {
+    content: '';
+    display: block;
+    height: 32px;
+    background: #2d2d2d;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+  }
+
+  html.light .blog-content pre::before {
+    background: #e5e5e7;
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+  }
+
+  /* macOS Window Controls (Red, Yellow, Green dots) */
+  .blog-content pre::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ff5f57;
+    box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #28ca42;
+    z-index: 1;
+  }
+
+  .blog-content pre code {
+    background: transparent;
+    padding: 1rem 1.25rem;
+    padding-top: 0.5rem;
+    border-radius: 0;
+    font-size: inherit;
+    color: #d4d4d4;
+    font-weight: 400;
+    display: block;
+    white-space: pre;
+    overflow-x: auto;
+    margin-top: 0;
+  }
+
+  html.light .blog-content pre code {
+    color: #1d1d1f;
+  }
+
+  /* Syntax highlighting support */
+  .blog-content pre[class*="language-"] {
+    background: #1e1e1e;
+  }
+
+  html.light .blog-content pre[class*="language-"] {
+    background: #f5f5f7;
+  }
+
+  /* Ensure code inside pre doesn't inherit Comfortaa */
+  .blog-content pre,
+  .blog-content pre code,
+  .blog-content code {
+    font-family: "Courier New", "Monaco", "Menlo", "Ubuntu Mono", monospace !important;
+  }
+
+  .blog-content blockquote {
+    border-left: 3px solid var(--color-space-red);
+    padding-left: 1rem;
+    margin-left: 0;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    opacity: 0.9;
+  }
+
+  html.dark .blog-content blockquote {
+    border-left-color: var(--color-space-yellow);
+  }
+
+  .blog-content a {
+    color: var(--color-space-red);
+    text-decoration: underline;
+    transition: opacity 0.3s ease;
+  }
+
+  html.dark .blog-content a {
+    color: var(--color-space-yellow);
+  }
+
+  .blog-content a:hover {
+    opacity: 0.8;
+  }
+
+  .blog-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin: 1.5rem 0;
+  }
+
+  @media (max-width: 768px) {
+    .blog-content {
+      font-size: 0.9rem;
+    }
+
+    .blog-content h1 {
+      font-size: 1.5rem;
+    }
+
+    .blog-content h2 {
+      font-size: 1.3rem;
+    }
+
+    .blog-content h3 {
+      font-size: 1.1rem;
+    }
+  }
+</style>

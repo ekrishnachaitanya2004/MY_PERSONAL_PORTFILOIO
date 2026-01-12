@@ -13,6 +13,7 @@ const blogsCollection = defineCollection({
         draft: z.boolean().optional(),
         featured: z.boolean().optional(),
         slug: z.string().optional(),
+        emoji: z.string().optional().default("❤️"),
         image: z.object({
             url: image().or(z.string()),
             alt: z.string().optional()

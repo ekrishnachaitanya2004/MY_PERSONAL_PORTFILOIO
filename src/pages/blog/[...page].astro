@@ -2,7 +2,6 @@
 import type { GetStaticPathsOptions, Page } from "astro";
 import { type CollectionEntry, getCollection } from "astro:content";
 import Pagination from "../../components/Pagination.astro";
-import Subscribe from "../../components/Subscribe.astro";
 import { sortItemsByDateDesc } from "../../utils/helpers";
 import MainLayout from "../../layouts/MainLayout.astro";
 import siteConfig from "../../site.config";
@@ -62,23 +61,21 @@ const sortedMonths = Object.keys(groupedPosts).sort((a, b) => {
 });
 ---
 
-<MainLayout activePage="blog" pageTitle={siteConfig.title + " | Blog Archive"}>
-  <div class="page-content py-8 text-center">
-    <h1 class="sigmar-ff">Blog</h1>
-    <p class="font-light text-balance">
-      Funny, witty, and unexpected tales from the heart of Mumbai. Stories of
-      everyday people, their struggles, wins, and the city that shapes them.
-    </p>
+<MainLayout activePage="blog" pageTitle={siteConfig.title + " | Blog Archive"} showSubscribeForm={false}>
+  <div class="blog-page">
+    <div class="blog-header">
+      <h1 class="sigmar-ff blog-title">BLOG</h1>
+      <p class="comfortaa-regular blog-description">
+        Technical experiments, cybersecurity insights, and things I've learned while building. 
+        Not tutorials. Not motivation. Just real notes from figuring stuff out.
+      </p>
+    </div>
 
-    <div
-      class="flex flex-col text-left gap-12 mb-4 text-sm sm:text-base max-w-fit mx-auto"
-    >
+    <div class="blog-content">
       {sortedMonths.map((monthYear) => (
-        <div class="flex flex-col gap-6">
-          <h2 class="sigmar-ff text-2xl sm:text-3xl border-b border-gray-500/50 pb-2">
-            {monthYear}
-          </h2>
-          <div class="flex flex-col gap-8 pl-0 sm:pl-4">
+        <div class="blog-month-section">
+          <h2 class="sigmar-ff month-heading">{monthYear}</h2>
+          <div class="posts-list">
             {groupedPosts[monthYear].map((post) => (
               <PostCardPreview post={post} />
             ))}
@@ -86,6 +83,102 @@ const sortedMonths = Object.keys(groupedPosts).sort((a, b) => {
         </div>
       ))}
     </div>
-    <Pagination page={page} class="mb-16 sm:mb-24" />
+    
+    <div class="pagination-wrapper">
+      <Pagination page={page} />
+    </div>
   </div>
 </MainLayout>
+
+<style>
+  .blog-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .blog-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid;
+    border-color: rgba(128, 128, 128, 0.3);
+  }
+
+  .blog-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+  }
+
+  .blog-description {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.9;
+  }
+
+  .blog-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .blog-month-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .month-heading {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid;
+    border-color: rgba(128, 128, 128, 0.2);
+    text-align: left;
+  }
+
+  .posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-left: 0;
+  }
+
+  .pagination-wrapper {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (max-width: 768px) {
+    .blog-page {
+      padding: 1.5rem 1rem;
+    }
+
+    .blog-header {
+      margin-bottom: 3rem;
+      padding-bottom: 1.5rem;
+    }
+
+    .blog-description {
+      font-size: 1rem;
+    }
+
+    .blog-content {
+      gap: 2.5rem;
+    }
+
+    .posts-list {
+      gap: 1.5rem;
+    }
+
+    .month-heading {
+      font-size: 1.5rem;
+    }
+  }
+</style>
