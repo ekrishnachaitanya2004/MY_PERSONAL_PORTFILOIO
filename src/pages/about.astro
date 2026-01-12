@@ -66,28 +66,19 @@ import { Image } from "astro:assets";
     <section class="about-section">
       <div class="content-card">
         <p class="comfortaa-regular" style="font-size: 1.05rem; line-height: 1.8;">
-          Hey, this is my personal About page.
+          I'm Krishna Chaitanya Ethamukkala, a cybersecurity enthusiast, developer, and the founder of Krypto Hashers Community (KHC). I build tools, experiment with security concepts, and document what I learn along the way.
         </p>
         <p class="comfortaa-regular" style="font-size: 1.05rem; line-height: 1.8; margin-top: 0.5rem;">
-          Everything on this website the blogs, projects, and write-ups is professional. This is not a personal diary. This is my professional portfolio, showing my work, experience, and the things I've built. Anything personal stays out of this space.
+          My work focuses on practical cybersecurity research, automation tools, and open-source development. I'm particularly interested in encryption, ransomware research (for defensive purposes), and building security-focused applications that solve real problems.
         </p>
         <p class="comfortaa-regular" style="font-size: 1.05rem; line-height: 1.8; margin-top: 0.5rem;">
-          I'm Krishna, and I'm the owner and founder of the Krypto Hashers Community (KHC). There was a time when KHC was alive and doing solid work. It wasn't perfect, but it was real. Now, I'll say it straight "it's almost dead" because I've been inactive for more than half a year. Still, a few people are doing crazy things to keep it alive, and that's the only reason it still exists today.
+          Through KHC, I've led the development of multiple open-source projects including Snakes-Ransomware (educational PoC), KHCrypt (USB-based security system), and various automation tools. These projects reflect my approach to building: start with a problem, experiment with solutions, and document the process.
         </p>
         <p class="comfortaa-regular" style="font-size: 1.05rem; line-height: 1.8; margin-top: 0.5rem;">
-          Right now, I'm not in the mode of collaborating with people or running communities. I've stepped back on purpose. I made a decision that I regretchoosing to pursue a master's degree as an international student. It's killing my productive time and energy and not letting me do my own things, even the ones that might look useless to others. I used to build useless projects and random experiments freely, but now I'm stuck doing a useless degree. Honestly, the things I did in the past were far better than this funny degree. I keep thinking about the time when I was at home happy, without pressure, with my time and productivity fully in my control.
+          Currently pursuing my Master's degree while continuing to work on side projects and maintain my technical blog. I believe in learning by doing, and this portfolio represents that journey—the experiments, the failures, and the occasional breakthroughs.
         </p>
         <p class="comfortaa-regular" style="font-size: 1.05rem; line-height: 1.8; margin-top: 0.5rem;">
-          Anyway, that's where I'm at right now. No excuses. No drama. Just reality. I'm still figuring out what comes next.
-        </p>
-        <p class="comfortaa-regular" style="font-size: 1.05rem; line-height: 1.8; margin-top: 0.5rem;">
-          I've written some crazy stuff here,you'll find it in the blog section. These are technical, experimental, and professional. They reflect how I think and how I build.
-        </p>
-        <p class="comfortaa-regular" style="font-size: 1.05rem; line-height: 1.8; margin-top: 0.5rem;">
-          If you want to read my personal blogs the real me ,they exist online, but you'll have to find them yourself. They're not for the general public. If you're genuinely curious and a little crazy, you'll find them easily. I don't mind if a crazy Dev reads them,I just don't promote them.
-        </p>
-        <p class="comfortaa-regular" style="font-size: 1.05rem; line-height: 1.8; margin-top: 0.5rem;">
-          Below is my basic profile. Go through it if you want.
+          Below you'll find my educational background, technical skills, certifications, and professional experience. Feel free to explore my projects and blog posts to see what I've been working on.
         </p>
       </div>
     </section>
@@ -655,7 +646,7 @@ import { Image } from "astro:assets";
     padding: 2rem;
     border-radius: 1rem;
     background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(128, 128, 128, 0.15);
+    border: none;
   }
 
   html.light .content-card {
@@ -663,8 +654,7 @@ import { Image } from "astro:assets";
   }
 
   .content-card:hover {
-    border-color: rgba(128, 128, 128, 0.3);
-    transition: border-color 0.2s ease;
+    transition: background 0.2s ease;
   }
 
   .education-roadmap {
@@ -998,7 +988,7 @@ import { Image } from "astro:assets";
     padding: 1rem 1.5rem;
     border-radius: 0.5rem;
     background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(128, 128, 128, 0.15);
+    border: none;
     font-size: 0.95rem;
     transition: all 0.2s ease;
   }
@@ -1008,7 +998,11 @@ import { Image } from "astro:assets";
   }
 
   .cert-item:hover {
-    border-color: rgba(128, 128, 128, 0.3);
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  html.light .cert-item:hover {
+    background: rgba(0, 0, 0, 0.04);
   }
 
   .location-section {
@@ -1336,7 +1330,7 @@ import { Image } from "astro:assets";
     padding: 1rem 1.5rem;
     border-radius: 0.75rem;
     background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(128, 128, 128, 0.15);
+    border: none;
     transition: all 0.2s ease;
   }
 
@@ -1345,12 +1339,16 @@ import { Image } from "astro:assets";
   }
 
   .language-item:hover {
-    border-color: var(--color-space-red);
+    background: rgba(255, 255, 255, 0.05);
     transform: translateX(5px);
   }
 
   html.dark .language-item:hover {
-    border-color: var(--color-space-yellow);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  html.light .language-item:hover {
+    background: rgba(0, 0, 0, 0.05);
   }
 
   .language-name {

@@ -30,7 +30,7 @@ const { title, pubDate, description } = post.data;
     transition: all 0.3s ease;
     padding: 1.5rem;
     border-radius: 0.75rem;
-    border: 1px solid transparent;
+    border: none;
     background: rgba(255, 255, 255, 0.02);
   }
 
@@ -40,17 +40,15 @@ const { title, pubDate, description } = post.data;
 
   .post-card:hover {
     transform: translateX(8px);
-    border-color: var(--color-space-red);
     background: rgba(255, 255, 255, 0.05);
   }
 
   html.dark .post-card:hover {
-    border-color: var(--color-space-yellow);
+    background: rgba(255, 255, 255, 0.05);
   }
 
   html.light .post-card:hover {
     background: rgba(0, 0, 0, 0.05);
-    border-color: var(--color-space-red);
   }
 
   .post-card-content {
