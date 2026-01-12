@@ -144,25 +144,29 @@ const siteConfig: SiteConfig = {
         text: "Krishna Ethamukkala is a writer from India, sharing short and medium-length stories about the vibrant lives of Mumbai's people. His writing blends humor, wit, and surprise, making every story a delightful journey. For the past three years, Samay has captured the essence of Mumbai, one story at a time."
     },
     contactInfo: {
-        title: 'Contact',
-        text: "Have a question, suggestion, or just want to say hi? Reach out to Samay through any of the links below:",
+        title: 'Get In Touch',
+        text: "Have a question, suggestion, or just want to say hi? I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Reach out through any of the channels below:",
         email: {
-            text: "Drop me an email and I’ll do my best to respond as soon as possible.",
-            href: "mailto:example@example.com",
-            email: "example@example.com"
+            text: "Drop me an email and I'll do my best to respond as soon as possible.",
+            href: "mailto:ekrishnachaitanya2004@gmail.com",
+            email: "ekrishnachaitanya2004@gmail.com"
         },
         socialProfiles: [
             {
-                text: "Instagram",
-                href: "https://instagram.com/"
+                text: "GitHub",
+                href: "https://github.com/"
+            },
+            {
+                text: "LinkedIn",
+                href: "https://linkedin.com/"
             },
             {
                 text: "Twitter",
                 href: "https://twitter.com/"
             },
             {
-                text: "LinkedIn",
-                href: "https://linkedin.com/"
+                text: "Instagram",
+                href: "https://instagram.com/"
             }
         ]
     },
