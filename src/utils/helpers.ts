@@ -32,4 +32,15 @@ export function getPostsByTag(posts: CollectionEntry<'blogs'>[], tagId: string) 
     return filteredPosts;
 }
 
-export const withBase = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+export const withBase = (path: string) => {
+  const base = import.meta.env.BASE_URL || "/";
+  // Normalize the path - ensure it starts with /
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  // If base is just "/", return the path as-is
+  if (base === "/") {
+    return normalizedPath;
+  }
+  // Otherwise, combine base and path, ensuring no double slashes
+  const baseClean = base.endsWith("/") ? base.slice(0, -1) : base;
+  return `${baseClean}${normalizedPath}`;
+};
