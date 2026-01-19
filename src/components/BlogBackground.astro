@@ -4,33 +4,56 @@ type Props = {
 };
 
 const { emoji = "❤️" } = Astro.props;
+
+// Seeded random number generator for consistent positioning based on emoji
+function seededRandom(seed: string, index: number): number {
+  let hash = 0;
+  const combinedSeed = seed + index.toString();
+  for (let i = 0; i < combinedSeed.length; i++) {
+    const char = combinedSeed.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
+    hash = hash & hash; // Convert to 32-bit integer
+  }
+  // Generate a pseudo-random number between 0 and 1
+  return Math.abs(Math.sin(hash)) % 1;
+}
+
+// Generate consistent random values for each emoji
+const elements = Array.from({ length: 25 }).map((_, index) => {
+  const randomX = seededRandom(emoji, index * 1) * 100;
+  const randomY = seededRandom(emoji, index * 2) * 100;
+  const randomRotation = seededRandom(emoji, index * 3) * 360;
+  const randomDelay = seededRandom(emoji, index * 4) * 3;
+  const randomSize = 0.6 + seededRandom(emoji, index * 5) * 0.4; // Random size between 0.6 and 1.0
+  const animationDuration = 40 + seededRandom(emoji, index * 6) * 30; // Random duration between 40-70s
+  
+  return {
+    x: randomX,
+    y: randomY,
+    rotation: randomRotation,
+    delay: randomDelay,
+    size: randomSize,
+    duration: animationDuration,
+  };
+});
 ---
 
 <div class="blog-background" data-emoji={emoji}>
-  {Array.from({ length: 25 }).map((_, index) => {
-    const randomX = Math.random() * 100;
-    const randomY = Math.random() * 100;
-    const randomRotation = Math.random() * 360;
-    const randomDelay = Math.random() * 3;
-    const randomSize = 0.6 + Math.random() * 0.4; // Random size between 0.6 and 1.0
-    const animationDuration = 40 + Math.random() * 30; // Random duration between 40-70s for slow motion
-    
-    return (
-      <div 
-        class="background-element"
-        style={`
-          left: ${randomX}%;
-          top: ${randomY}%;
-          --rotation: ${randomRotation}deg;
-          --scale: ${randomSize};
-          --delay: ${randomDelay}s;
-          --duration: ${animationDuration}s;
-        `}
-      >
-        <span class="emoji-text">{emoji}</span>
-      </div>
-    );
-  })}
+  {elements.map((element, index) => (
+    <div 
+      class="background-element"
+      style={`
+        left: ${element.x}%;
+        top: ${element.y}%;
+        --rotation: ${element.rotation}deg;
+        --scale: ${element.size};
+        --delay: ${element.delay}s;
+        --duration: ${element.duration}s;
+      `}
+    >
+      <span class="emoji-text">{emoji}</span>
+    </div>
+  ))}
 </div>
 
 <style>

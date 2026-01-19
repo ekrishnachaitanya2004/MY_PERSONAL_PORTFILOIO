@@ -5,6 +5,7 @@ title: Planned What to Do—Both Ways
 slug: plan2025
 featured: false
 draft: false
+emoji: 📋
 tags:
   - KHC
   - harshi
